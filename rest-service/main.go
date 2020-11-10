@@ -1,0 +1,20 @@
+package main
+
+import (
+	"net/http"
+)
+
+func main() {
+
+	http.Handle("/foo", &fooHandler{Message: "foo called"})
+	http.ListenAndServe(":5000", nil)
+
+}
+
+type fooHandler struct {
+	Message string
+}
+
+func (f *fooHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte(f.Message))
+}
