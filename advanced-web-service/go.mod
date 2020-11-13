@@ -1,4 +1,4 @@
-module advanced-web-service
+module microserviceDemo
 
 go 1.15
 
